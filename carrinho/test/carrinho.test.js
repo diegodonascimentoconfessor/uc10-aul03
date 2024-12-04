@@ -25,6 +25,20 @@ describe('Teste Carrinho', () => {
   it('deve ter a propriedade subtotal na inicialização', () => {
     const carrinho = new Carrinho();
     expect(carrinho).toHaveProperty('subtotal'); // Verifica se a propriedade 'subtotal' existe
-   
+  });
+
+  it('deve verificar se o array contém um item com as mesmas propriedades', () => {
+    const item1 = new Item('beterraba', 2.5, 10);
+    const item2 = new Item('cenoura', 1.5, 20);
+    const item3 = new Item('batata', 3.0, 15);
+
+    const listaDeItens = [item1, item2, item3];
+
+    // Verificar se o array contém um item equivalente a item2
+    expect(listaDeItens).toContainEqual(item2);
+
+    // Verificar um item novo com as mesmas propriedades de item1
+    const itemIgual = new Item('beterraba', 2.5, 10);
+    expect(listaDeItens).toContainEqual(itemIgual);
   });
 });
